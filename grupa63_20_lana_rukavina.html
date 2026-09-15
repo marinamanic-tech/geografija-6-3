@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Inicijalni test - Geografija 6</title>
+<style>
+  :root{
+    --bg:#F6F4EE;
+    --ink:#1E2B26;
+    --ink-soft:#5B6B63;
+    --line:#D8D2C2;
+    --accent:#3F6B57;
+    --accent-soft:#E7EFE9;
+    --warn:#9C4A3B;
+    --card:#FFFFFF;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.5;
+    padding-bottom:60px;
+  }
+  header{
+    padding:28px 20px 20px; border-bottom:1px solid var(--line);
+    background:var(--card);
+  }
+  header h1{
+    font-family:Georgia,"Times New Roman",serif;
+    font-size:22px; margin:0 0 6px; font-weight:600; letter-spacing:.2px;
+  }
+  header p{margin:2px 0; color:var(--ink-soft); font-size:14px;}
+  .student-name{color:var(--accent); font-weight:600;}
+  main{max-width:640px; margin:0 auto; padding:20px 16px;}
+  .intro{
+    background:var(--accent-soft); border:1px solid var(--line);
+    border-radius:10px; padding:16px 18px; margin-bottom:24px; font-size:14.5px;
+  }
+  .intro strong{color:var(--warn);}
+  .qcard{
+    background:var(--card); border:1px solid var(--line); border-radius:10px;
+    padding:18px 18px 14px; margin-bottom:16px;
+  }
+  .qmeta{
+    font-size:11.5px; text-transform:none; color:var(--ink-soft);
+    margin-bottom:8px; display:flex; gap:8px; align-items:center;
+  }
+  .badge{
+    display:inline-block; padding:2px 9px; border-radius:20px;
+    font-size:11px; border:1px solid var(--line); color:var(--ink-soft);
+  }
+  .qnum{font-weight:600; color:var(--ink);}
+  .qtext{font-size:16px; font-weight:500; margin:4px 0 12px; color:var(--ink);}
+  .opt{
+    display:flex; align-items:flex-start; gap:10px; padding:10px 12px;
+    border:1px solid var(--line); border-radius:8px; margin-bottom:8px;
+    cursor:pointer; font-size:15px; transition:border-color .15s, background .15s;
+  }
+  .opt:active{background:var(--accent-soft);}
+  .opt input{margin-top:3px; accent-color:var(--accent); flex-shrink:0;}
+  .opt.selected{border-color:var(--accent); background:var(--accent-soft);}
+  #submit-wrap{
+    max-width:640px; margin:0 auto; padding:8px 16px 40px; text-align:center;
+  }
+  button#submitBtn{
+    background:var(--accent); color:#fff; border:none; border-radius:8px;
+    padding:15px 26px; font-size:16px; font-weight:600; width:100%;
+    cursor:pointer;
+  }
+  button#submitBtn:disabled{opacity:.5;}
+  .progress{
+    font-size:13px; color:var(--ink-soft); margin-bottom:10px; text-align:center;
+  }
+  #resultScreen{display:none; max-width:640px; margin:40px auto; padding:0 16px; text-align:center;}
+  #resultScreen h2{font-family:Georgia,serif; font-size:24px; margin-bottom:8px;}
+  .score-big{font-size:44px; font-weight:700; color:var(--accent); margin:18px 0 4px;}
+  .score-sub{color:var(--ink-soft); font-size:14px;}
+  .level-breakdown{
+    text-align:left; background:var(--card); border:1px solid var(--line);
+    border-radius:10px; padding:16px 18px; margin-top:24px; font-size:14.5px;
+  }
+  .level-breakdown div{display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid var(--line);}
+  .level-breakdown div:last-child{border-bottom:none; font-weight:600;}
+  #lockScreen{display:none; max-width:500px; margin:60px auto; padding:0 20px; text-align:center;}
+  #lockScreen h2{font-family:Georgia,serif;}
+  .status-line{font-size:13px; color:var(--ink-soft); margin-top:14px; min-height:18px;}
+  #testForm{display:block;}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Inicijalni test — Geografija, 6. razred</h1>
+  <p>Učenik/ca: <span class="student-name">Lana Rukavina</span></p>
+  <p>Grupa grupa63-20 · 20 pitanja · jedan pokušaj</p>
+</header>
+
+<main>
+  <div class="intro">
+    Test ima <strong>20 pitanja</strong> različitog nivoa težine (osnovni, srednji, napredni). Svako pitanje ima samo jedan tačan odgovor. Test se <strong>predaje samo jednom</strong> — nakon predaje ne možeš da menjaš odgovore. Odgovori pažljivo i predaj kada završiš.
+  </div>
+
+  <form id="testForm">
+        <div class="qcard" data-qindex="0">
+      <div class="qmeta"><span class="qnum">Pitanje 1</span><span class="badge">Srednji nivo</span><span class="badge">Zemljina kretanja</span></div>
+      <div class="qtext">Kako nagnutost Zemljine ose utiče na godišnja doba?</div>
+            <label class="opt"><input type="radio" name="q0" value="0"><span>Uzrokuje plimu i oseku</span></label>
+      <label class="opt"><input type="radio" name="q0" value="1"><span>Uzrokuje smenu dana i noći</span></label>
+      <label class="opt"><input type="radio" name="q0" value="2"><span>Uzrokuje različitu osvetljenost i zagrejanost delova Zemlje tokom godine</span></label>
+      <label class="opt"><input type="radio" name="q0" value="3"><span>Nema uticaja na godišnja doba</span></label>
+
+    </div>
+
+    <div class="qcard" data-qindex="1">
+      <div class="qmeta"><span class="qnum">Pitanje 2</span><span class="badge">Srednji nivo</span><span class="badge">Unutrašnja građa i reljef</span></div>
+      <div class="qtext">Šta su unutrašnje sile koje oblikuju reljef Zemlje?</div>
+            <label class="opt"><input type="radio" name="q1" value="0"><span>Sila Zemljine teže i unutrašnja toplota Zemlje (tektonika, vulkanizam)</span></label>
+      <label class="opt"><input type="radio" name="q1" value="1"><span>Mesečeva gravitacija isključivo</span></label>
+      <label class="opt"><input type="radio" name="q1" value="2"><span>Sunčeva svetlost</span></label>
+      <label class="opt"><input type="radio" name="q1" value="3"><span>Vetar i voda</span></label>
+
+    </div>
+
+    <div class="qcard" data-qindex="2">
+      <div class="qmeta"><span class="qnum">Pitanje 3</span><span class="badge">Napredni nivo</span><span class="badge">Unutrašnja građa i reljef</span></div>
+      <div class="qtext">Zašto naučnici razlikuju hipocentar i epicentar zemljotresa?</div>
+            <label class="opt"><input type="radio" name="q2" value="0"><span>Epicentar je uvek dublji od hipocentra</span></label>
+      <label class="opt"><input type="radio" name="q2" value="1"><span>Odnosi se samo na vulkane</span></label>
+      <label class="opt"><input type="radio" name="q2" value="2"><span>To su sinonimi za isti pojam</span></label>
+      <label class="opt"><input type="radio" name="q2" value="3"><span>Hipocentar je tačka u unutrašnjosti gde nastaje potres, epicentar je tačka na površini iznad njega - razlika pomaže u proceni jačine i posledica</span></label>
+
+    </div>
+
+    <div class="qcard" data-qindex="3">
+      <div class="qmeta"><span class="qnum">Pitanje 4</span><span class="badge">Srednji nivo</span><span class="badge">Unutrašnja građa i reljef</span></div>
+      <div class="qtext">Šta su spoljašnje sile koje oblikuju reljef?</div>
+            <label class="opt"><input type="radio" name="q3" value="0"><span>Vetar i voda (erozija)</span></label>
+      <label class="opt"><input type="radio" name="q3" value="1"><span>Zemljina teža</span></label>
+      <label class="opt"><input type="radio" name="q3" value="2"><span>Vulkanska aktivnost</span></label>
+      <label class="opt"><input type="radio" name="q3" value="3"><span>Unutrašnja toplota Zemlje</span></label>
+
+    </div>
+
+    <div class="qcard" data-qindex="4">
+      <div class="qmeta"><span class="qnum">Pitanje 5</span><span class="badge">Srednji nivo</span><span class="badge">Hidrosfera</span></div>
+      <div class="qtext">Koja je razlika između rečne mreže i rečnog sliva?</div>
+            <label class="opt"><input type="radio" name="q4" value="0"><span>Isto su</span></label>
+      <label class="opt"><input type="radio" name="q4" value="1"><span>Rečna mreža je sistem reka i pritoka, sliv je područje sa kog reka i njene pritoke skupljaju vodu</span></label>
+      <label class="opt"><input type="radio" name="q4" value="2"><span>Sliv je samo ušće reke</span></label>
+      <label class="opt"><input type="radio" name="q4" value="3"><span>Rečna mreža je samo glavna reka</span></label>
+
+    </div>
+
+    <div class="qcard" data-qindex="5">
+      <div class="qmeta"><span class="qnum">Pitanje 6</span><span class="badge">Osnovni nivo</span><span class="badge">Oblik Zemlje</span></div>
+      <div class="qtext">Šta pokriva veći deo površine Zemlje?</div>
+            <label class="opt"><input type="radio" name="q5" value="0"><span>Pustinje</span></label>
+      <label class="opt"><input type="radio" name="q5" value="1"><span>Led</span></label>
+      <label class="opt"><input type="radio" name="q5" value="2"><span>Voda (okeani i mora)</span></label>
+      <label class="opt"><input type="radio" name="q5" value="3"><span>Kopno</span></label>
+
+    </div>
+
+    <div class="qcard" data-qindex="6">
+      <div class="qmeta"><span class="qnum">Pitanje 7</span><span class="badge">Osnovni nivo</span><span class="badge">Zemljina kretanja</span></div>
+      <div class="qtext">Kako se zove kretanje Zemlje oko sopstvene ose?</div>
+            <label class="opt"><input type="radio" name="q6" value="0"><span>Gravitacija</span></label>
+      <label class="opt"><input type="radio" name="q6" value="1"><span>Erozija</span></label>
+      <label class="opt"><input type="radio" name="q6" value="2"><span>Revolucija</span></label>
+      <label class="opt"><input type="radio" name="q6" value="3"><span>Rotacija</span></label>
+
+    </div>
+
+    <div class="qcard" data-qindex="7">
+      <div class="qmeta"><span class="qnum">Pitanje 8</span><span class="badge">Napredni nivo</span><span class="badge">Biosfera</span></div>
+      <div class="qtext">Zašto pojedine biljne i životinjske vrste izumiru usled ljudskog delovanja?</div>
+            <label class="opt"><input type="radio" name="q7" value="0"><span>Vrste izumiru isključivo prirodnim putem bez uticaja čoveka</span></label>
+      <label class="opt"><input type="radio" name="q7" value="1"><span>Čovek nema uticaj na biodiverzitet</span></label>
+      <label class="opt"><input type="radio" name="q7" value="2"><span>Zbog uništavanja staništa, zagađenja i prekomerne eksploatacije prirodnih resursa</span></label>
+      <label class="opt"><input type="radio" name="q7" value="3"><span>Izumiranje se dešava samo u okeanima</span></label>
+
+    </div>
+
+    <div class="qcard" data-qindex="8">
+      <div class="qmeta"><span class="qnum">Pitanje 9</span><span class="badge">Srednji nivo</span><span class="badge">Hidrosfera</span></div>
+      <div class="qtext">Šta uzrokuje poplave i bujice?</div>
+            <label class="opt"><input type="radio" name="q8" value="0"><span>Isključivo zemljotresi</span></label>
+      <label class="opt"><input type="radio" name="q8" value="1"><span>Obilne padavine, topljenje snega, nagli priliv vode u rečno korito</span></label>
+      <label class="opt"><input type="radio" name="q8" value="2"><span>Nedostatak padavina</span></label>
+      <label class="opt"><input type="radio" name="q8" value="3"><span>Isključivo vetar</span></label>
+
+    </div>
+
+    <div class="qcard" data-qindex="9">
+      <div class="qmeta"><span class="qnum">Pitanje 10</span><span class="badge">Osnovni nivo</span><span class="badge">Atmosfera</span></div>
+      <div class="qtext">Šta je atmosfera?</div>
+            <label class="opt"><input type="radio" name="q9" value="0"><span>Vodeni omotač Zemlje</span></label>
+      <label class="opt"><input type="radio" name="q9" value="1"><span>Živi svet Zemlje</span></label>
+      <label class="opt"><input type="radio" name="q9" value="2"><span>Kameni omotač Zemlje</span></label>
+      <label class="opt"><input type="radio" name="q9" value="3"><span>Vazdušni omotač Zemlje</span></label>
+
+    </div>
+
+    <div class="qcard" data-qindex="10">
+      <div class="qmeta"><span class="qnum">Pitanje 11</span><span class="badge">Srednji nivo</span><span class="badge">Atmosfera</span></div>
+      <div class="qtext">Koja je razlika između vremena (vremenskih prilika) i klime?</div>
+            <label class="opt"><input type="radio" name="q10" value="0"><span>Klima se menja svaki dan, vreme ne</span></label>
+      <label class="opt"><input type="radio" name="q10" value="1"><span>Vreme se odnosi samo na temperaturu</span></label>
+      <label class="opt"><input type="radio" name="q10" value="2"><span>Isto su</span></label>
+      <label class="opt"><input type="radio" name="q10" value="3"><span>Vreme je trenutno stanje atmosfere, klima je prosečno stanje kroz duži period</span></label>
+
+    </div>
+
+    <div class="qcard" data-qindex="11">
+      <div class="qmeta"><span class="qnum">Pitanje 12</span><span class="badge">Osnovni nivo</span><span class="badge">Zemljina kretanja</span></div>
+      <div class="qtext">Kako se zove kretanje Zemlje oko Sunca?</div>
+            <label class="opt"><input type="radio" name="q11" value="0"><span>Precesija</span></label>
+      <label class="opt"><input type="radio" name="q11" value="1"><span>Translacija</span></label>
+      <label class="opt"><input type="radio" name="q11" value="2"><span>Rotacija</span></label>
+      <label class="opt"><input type="radio" name="q11" value="3"><span>Revolucija</span></label>
+
+    </div>
+
+    <div class="qcard" data-qindex="12">
+      <div class="qmeta"><span class="qnum">Pitanje 13</span><span class="badge">Osnovni nivo</span><span class="badge">Vasiona</span></div>
+      <div class="qtext">Kako se zove sistem nebeskih tela kome pripada Zemlja?</div>
+            <label class="opt"><input type="radio" name="q12" value="0"><span>Sunčev sistem</span></label>
+      <label class="opt"><input type="radio" name="q12" value="1"><span>Mlečni put</span></label>
+      <label class="opt"><input type="radio" name="q12" value="2"><span>Galaksija</span></label>
+      <label class="opt"><input type="radio" name="q12" value="3"><span>Vasiona</span></label>
+
+    </div>
+
+    <div class="qcard" data-qindex="13">
+      <div class="qmeta"><span class="qnum">Pitanje 14</span><span class="badge">Osnovni nivo</span><span class="badge">Hidrosfera</span></div>
+      <div class="qtext">Kako se zove mesto gde reka izvire?</div>
+            <label class="opt"><input type="radio" name="q13" value="0"><span>Ušće</span></label>
+      <label class="opt"><input type="radio" name="q13" value="1"><span>Sliv</span></label>
+      <label class="opt"><input type="radio" name="q13" value="2"><span>Izvor</span></label>
+      <label class="opt"><input type="radio" name="q13" value="3"><span>Delta</span></label>
+
+    </div>
+
+    <div class="qcard" data-qindex="14">
+      <div class="qmeta"><span class="qnum">Pitanje 15</span><span class="badge">Napredni nivo</span><span class="badge">Unutrašnja građa i reljef</span></div>
+      <div class="qtext">Kako su povezani vulkanizam i zemljotresi sa kretanjem litosfernih ploča?</div>
+            <label class="opt"><input type="radio" name="q14" value="0"><span>Dešavaju se samo u centru kontinenata</span></label>
+      <label class="opt"><input type="radio" name="q14" value="1"><span>Uzrokovani su isključivo Mesečevom gravitacijom</span></label>
+      <label class="opt"><input type="radio" name="q14" value="2"><span>Nastaju na granicama ploča usled njihovog sudaranja, razdvajanja ili klizanja</span></label>
+      <label class="opt"><input type="radio" name="q14" value="3"><span>Nemaju nikakve veze sa pločama</span></label>
+
+    </div>
+
+    <div class="qcard" data-qindex="15">
+      <div class="qmeta"><span class="qnum">Pitanje 16</span><span class="badge">Osnovni nivo</span><span class="badge">Hidrosfera</span></div>
+      <div class="qtext">Šta je hidrosfera?</div>
+            <label class="opt"><input type="radio" name="q15" value="0"><span>Vazdušni omotač Zemlje</span></label>
+      <label class="opt"><input type="radio" name="q15" value="1"><span>Unutrašnjost Zemlje</span></label>
+      <label class="opt"><input type="radio" name="q15" value="2"><span>Vodeni omotač Zemlje</span></label>
+      <label class="opt"><input type="radio" name="q15" value="3"><span>Živi svet Zemlje</span></label>
+
+    </div>
+
+    <div class="qcard" data-qindex="16">
+      <div class="qmeta"><span class="qnum">Pitanje 17</span><span class="badge">Srednji nivo</span><span class="badge">Čovek i geografija</span></div>
+      <div class="qtext">Zašto je važno učiti geografiju za svakodnevni život?</div>
+            <label class="opt"><input type="radio" name="q16" value="0"><span>Koristi se samo za putovanja</span></label>
+      <label class="opt"><input type="radio" name="q16" value="1"><span>Pomaže razumevanju sveta, prirodnih pojava i donošenju odgovornih odluka o životnoj sredini</span></label>
+      <label class="opt"><input type="radio" name="q16" value="2"><span>Vezana je isključivo za nauku o svemiru</span></label>
+      <label class="opt"><input type="radio" name="q16" value="3"><span>Nema nikakvu praktičnu korist</span></label>
+
+    </div>
+
+    <div class="qcard" data-qindex="17">
+      <div class="qmeta"><span class="qnum">Pitanje 18</span><span class="badge">Osnovni nivo</span><span class="badge">Unutrašnja građa i reljef</span></div>
+      <div class="qtext">Kako se zove usijana tečna masa koja izbija iz vulkana?</div>
+            <label class="opt"><input type="radio" name="q17" value="0"><span>Lava (magma)</span></label>
+      <label class="opt"><input type="radio" name="q17" value="1"><span>Gas</span></label>
+      <label class="opt"><input type="radio" name="q17" value="2"><span>Pesak</span></label>
+      <label class="opt"><input type="radio" name="q17" value="3"><span>Led</span></label>
+
+    </div>
+
+    <div class="qcard" data-qindex="18">
+      <div class="qmeta"><span class="qnum">Pitanje 19</span><span class="badge">Napredni nivo</span><span class="badge">Unutrašnja građa i reljef</span></div>
+      <div class="qtext">Koje mere treba preduzeti za vreme zemljotresa?</div>
+            <label class="opt"><input type="radio" name="q18" value="0"><span>Stajati pored prozora</span></label>
+      <label class="opt"><input type="radio" name="q18" value="1"><span>Skloniti se ispod stabilnog nameštaja, udaljiti se od prozora i visokih objekata</span></label>
+      <label class="opt"><input type="radio" name="q18" value="2"><span>Nema potrebe za merama predostrožnosti</span></label>
+      <label class="opt"><input type="radio" name="q18" value="3"><span>Trčati napolje niz stepenice tokom potresa</span></label>
+
+    </div>
+
+    <div class="qcard" data-qindex="19">
+      <div class="qmeta"><span class="qnum">Pitanje 20</span><span class="badge">Napredni nivo</span><span class="badge">Hidrosfera</span></div>
+      <div class="qtext">Kako čovek utiče na zagađenje voda i koje su posledice?</div>
+            <label class="opt"><input type="radio" name="q19" value="0"><span>Čovek ne utiče na kvalitet voda</span></label>
+      <label class="opt"><input type="radio" name="q19" value="1"><span>Odnosi se samo na okeane</span></label>
+      <label class="opt"><input type="radio" name="q19" value="2"><span>Ispuštanjem otpadnih voda i hemikalija ugrožava vodeni svet i zalihe pijaće vode</span></label>
+      <label class="opt"><input type="radio" name="q19" value="3"><span>Zagađenje voda nema uticaj na živi svet</span></label>
+
+    </div>
+
+  </form>
+
+  <div class="progress" id="progressLine">Odgovoreno: 0 / 20</div>
+</main>
+
+<div id="submit-wrap">
+  <button id="submitBtn" type="button" onclick="submitTest()">Predaj test</button>
+  <div class="status-line" id="statusLine"></div>
+</div>
+
+<div id="resultScreen">
+  <h2>Test je predat</h2>
+  <div class="score-big" id="scoreBig"></div>
+  <div class="score-sub">od maksimalnih 37 poena</div>
+  <div class="level-breakdown" id="levelBreakdown"></div>
+</div>
+
+<div id="lockScreen">
+  <h2>Test je već predat</h2>
+  <p>Ovaj test je već jednom rešen i rezultat je poslat nastavniku. Nije moguće ponovo pristupiti testu sa ovog uređaja.</p>
+</div>
+
+<script>
+const STUDENT_NAME = "Lana Rukavina";
+const GROUP_NUM = "grupa63-20";
+const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbycathvmAfcxn91dEPg9G3s8tVlWp32e5oGVh0T2t5DAjrrIR1C5ngEecCb0phlmdYI/exec";
+const QUESTIONS = [{"q": "Kako nagnutost Zemljine ose utiče na godišnja doba?", "opts": ["Uzrokuje plimu i oseku", "Uzrokuje smenu dana i noći", "Uzrokuje različitu osvetljenost i zagrejanost delova Zemlje tokom godine", "Nema uticaja na godišnja doba"], "correct": 2, "tema": "Zemljina kretanja", "nivo": "srednji", "bodovi": 2}, {"q": "Šta su unutrašnje sile koje oblikuju reljef Zemlje?", "opts": ["Sila Zemljine teže i unutrašnja toplota Zemlje (tektonika, vulkanizam)", "Mesečeva gravitacija isključivo", "Sunčeva svetlost", "Vetar i voda"], "correct": 0, "tema": "Unutrašnja građa i reljef", "nivo": "srednji", "bodovi": 2}, {"q": "Zašto naučnici razlikuju hipocentar i epicentar zemljotresa?", "opts": ["Epicentar je uvek dublji od hipocentra", "Odnosi se samo na vulkane", "To su sinonimi za isti pojam", "Hipocentar je tačka u unutrašnjosti gde nastaje potres, epicentar je tačka na površini iznad njega - razlika pomaže u proceni jačine i posledica"], "correct": 3, "tema": "Unutrašnja građa i reljef", "nivo": "napredni", "bodovi": 3}, {"q": "Šta su spoljašnje sile koje oblikuju reljef?", "opts": ["Vetar i voda (erozija)", "Zemljina teža", "Vulkanska aktivnost", "Unutrašnja toplota Zemlje"], "correct": 0, "tema": "Unutrašnja građa i reljef", "nivo": "srednji", "bodovi": 2}, {"q": "Koja je razlika između rečne mreže i rečnog sliva?", "opts": ["Isto su", "Rečna mreža je sistem reka i pritoka, sliv je područje sa kog reka i njene pritoke skupljaju vodu", "Sliv je samo ušće reke", "Rečna mreža je samo glavna reka"], "correct": 1, "tema": "Hidrosfera", "nivo": "srednji", "bodovi": 2}, {"q": "Šta pokriva veći deo površine Zemlje?", "opts": ["Pustinje", "Led", "Voda (okeani i mora)", "Kopno"], "correct": 2, "tema": "Oblik Zemlje", "nivo": "osnovni", "bodovi": 1}, {"q": "Kako se zove kretanje Zemlje oko sopstvene ose?", "opts": ["Gravitacija", "Erozija", "Revolucija", "Rotacija"], "correct": 3, "tema": "Zemljina kretanja", "nivo": "osnovni", "bodovi": 1}, {"q": "Zašto pojedine biljne i životinjske vrste izumiru usled ljudskog delovanja?", "opts": ["Vrste izumiru isključivo prirodnim putem bez uticaja čoveka", "Čovek nema uticaj na biodiverzitet", "Zbog uništavanja staništa, zagađenja i prekomerne eksploatacije prirodnih resursa", "Izumiranje se dešava samo u okeanima"], "correct": 2, "tema": "Biosfera", "nivo": "napredni", "bodovi": 3}, {"q": "Šta uzrokuje poplave i bujice?", "opts": ["Isključivo zemljotresi", "Obilne padavine, topljenje snega, nagli priliv vode u rečno korito", "Nedostatak padavina", "Isključivo vetar"], "correct": 1, "tema": "Hidrosfera", "nivo": "srednji", "bodovi": 2}, {"q": "Šta je atmosfera?", "opts": ["Vodeni omotač Zemlje", "Živi svet Zemlje", "Kameni omotač Zemlje", "Vazdušni omotač Zemlje"], "correct": 3, "tema": "Atmosfera", "nivo": "osnovni", "bodovi": 1}, {"q": "Koja je razlika između vremena (vremenskih prilika) i klime?", "opts": ["Klima se menja svaki dan, vreme ne", "Vreme se odnosi samo na temperaturu", "Isto su", "Vreme je trenutno stanje atmosfere, klima je prosečno stanje kroz duži period"], "correct": 3, "tema": "Atmosfera", "nivo": "srednji", "bodovi": 2}, {"q": "Kako se zove kretanje Zemlje oko Sunca?", "opts": ["Precesija", "Translacija", "Rotacija", "Revolucija"], "correct": 3, "tema": "Zemljina kretanja", "nivo": "osnovni", "bodovi": 1}, {"q": "Kako se zove sistem nebeskih tela kome pripada Zemlja?", "opts": ["Sunčev sistem", "Mlečni put", "Galaksija", "Vasiona"], "correct": 0, "tema": "Vasiona", "nivo": "osnovni", "bodovi": 1}, {"q": "Kako se zove mesto gde reka izvire?", "opts": ["Ušće", "Sliv", "Izvor", "Delta"], "correct": 2, "tema": "Hidrosfera", "nivo": "osnovni", "bodovi": 1}, {"q": "Kako su povezani vulkanizam i zemljotresi sa kretanjem litosfernih ploča?", "opts": ["Dešavaju se samo u centru kontinenata", "Uzrokovani su isključivo Mesečevom gravitacijom", "Nastaju na granicama ploča usled njihovog sudaranja, razdvajanja ili klizanja", "Nemaju nikakve veze sa pločama"], "correct": 2, "tema": "Unutrašnja građa i reljef", "nivo": "napredni", "bodovi": 3}, {"q": "Šta je hidrosfera?", "opts": ["Vazdušni omotač Zemlje", "Unutrašnjost Zemlje", "Vodeni omotač Zemlje", "Živi svet Zemlje"], "correct": 2, "tema": "Hidrosfera", "nivo": "osnovni", "bodovi": 1}, {"q": "Zašto je važno učiti geografiju za svakodnevni život?", "opts": ["Koristi se samo za putovanja", "Pomaže razumevanju sveta, prirodnih pojava i donošenju odgovornih odluka o životnoj sredini", "Vezana je isključivo za nauku o svemiru", "Nema nikakvu praktičnu korist"], "correct": 1, "tema": "Čovek i geografija", "nivo": "srednji", "bodovi": 2}, {"q": "Kako se zove usijana tečna masa koja izbija iz vulkana?", "opts": ["Lava (magma)", "Gas", "Pesak", "Led"], "correct": 0, "tema": "Unutrašnja građa i reljef", "nivo": "osnovni", "bodovi": 1}, {"q": "Koje mere treba preduzeti za vreme zemljotresa?", "opts": ["Stajati pored prozora", "Skloniti se ispod stabilnog nameštaja, udaljiti se od prozora i visokih objekata", "Nema potrebe za merama predostrožnosti", "Trčati napolje niz stepenice tokom potresa"], "correct": 1, "tema": "Unutrašnja građa i reljef", "nivo": "napredni", "bodovi": 3}, {"q": "Kako čovek utiče na zagađenje voda i koje su posledice?", "opts": ["Čovek ne utiče na kvalitet voda", "Odnosi se samo na okeane", "Ispuštanjem otpadnih voda i hemikalija ugrožava vodeni svet i zalihe pijaće vode", "Zagađenje voda nema uticaj na živi svet"], "correct": 2, "tema": "Hidrosfera", "nivo": "napredni", "bodovi": 3}];
+const STORAGE_KEY = "geo_test_done_" + GROUP_NUM;
+
+function checkLock(){
+  if(localStorage.getItem(STORAGE_KEY) === "1"){
+    document.getElementById("testForm").style.display = "none";
+    document.getElementById("submit-wrap").style.display = "none";
+    document.getElementById("lockScreen").style.display = "block";
+    document.querySelector("main .intro").style.display = "none";
+    return true;
+  }
+  return false;
+}
+
+function updateProgress(){
+  const total = QUESTIONS.length;
+  let answered = 0;
+  QUESTIONS.forEach((q, i) => {
+    if(document.querySelector('input[name="q'+i+'"]:checked')) answered++;
+  });
+  document.getElementById("progressLine").textContent = "Odgovoreno: " + answered + " / " + total;
+}
+
+function highlightSelected(qIndex){
+  document.querySelectorAll('.qcard[data-qindex="'+qIndex+'"] .opt').forEach(el => el.classList.remove("selected"));
+  const checked = document.querySelector('input[name="q'+qIndex+'"]:checked');
+  if(checked) checked.closest(".opt").classList.add("selected");
+}
+
+document.addEventListener("change", function(e){
+  if(e.target.matches('input[type="radio"]')){
+    const qi = e.target.name.replace("q","");
+    highlightSelected(qi);
+    updateProgress();
+  }
+});
+
+function submitTest(){
+  const total = QUESTIONS.length;
+  let answered = 0;
+  const odgovori = [];
+  QUESTIONS.forEach((q, i) => {
+    const sel = document.querySelector('input[name="q'+i+'"]:checked');
+    if(sel){
+      answered++;
+      const idx = parseInt(sel.value, 10);
+      odgovori.push({pitanje: q.q, izabrano: q.opts[idx], tacno: idx === q.correct, nivo: q.nivo});
+    } else {
+      odgovori.push({pitanje: q.q, izabrano: null, tacno: false, nivo: q.nivo});
+    }
+  });
+
+  if(answered < total){
+    if(!confirm("Odgovorio/la si na " + answered + " od " + total + " pitanja. Nedostaje " + (total-answered) + " odgovora. Da li sigurno želiš da predaš test?")){
+      return;
+    }
+  } else {
+    if(!confirm("Da li si siguran/na da želiš da predaš test? Nakon predaje ne možeš menjati odgovore.")){
+      return;
+    }
+  }
+
+  const scores = {osnovni:0, osnovniMax:0, srednji:0, srednjiMax:0, napredni:0, napredniMax:0};
+  QUESTIONS.forEach((q, i) => {
+    scores[q.nivo + "Max"] += q.bodovi;
+    const sel = document.querySelector('input[name="q'+i+'"]:checked');
+    if(sel && parseInt(sel.value,10) === q.correct){
+      scores[q.nivo] += q.bodovi;
+    }
+  });
+  const ukupno = scores.osnovni + scores.srednji + scores.napredni;
+  const ukupnoMax = scores.osnovniMax + scores.srednjiMax + scores.napredniMax;
+
+  const payload = {
+    ime: STUDENT_NAME, grupa: GROUP_NUM,
+    osnovni: scores.osnovni, osnovniMax: scores.osnovniMax,
+    srednji: scores.srednji, srednjiMax: scores.srednjiMax,
+    napredni: scores.napredni, napredniMax: scores.napredniMax,
+    ukupno: ukupno, ukupnoMax: ukupnoMax,
+    odgovori: odgovori
+  };
+
+  document.getElementById("submitBtn").disabled = true;
+  document.getElementById("statusLine").textContent = "Šaljem rezultat...";
+
+  localStorage.setItem(STORAGE_KEY, "1");
+  showResult(scores, ukupno, ukupnoMax);
+
+  fetch(APPS_SCRIPT_URL, {
+    method: "POST",
+    body: JSON.stringify(payload)
+  }).then(r => {
+    document.getElementById("statusLine").textContent = "Rezultat je uspešno poslat nastavniku.";
+  }).catch(err => {
+    document.getElementById("statusLine").textContent = "Napomena: rezultat nije mogao automatski da se pošalje (proveri internet konekciju). Obavesti nastavnika ručno.";
+  });
+}
+
+function showResult(scores, ukupno, ukupnoMax){
+  document.getElementById("testForm").style.display = "none";
+  document.querySelector("main .intro").style.display = "none";
+  document.getElementById("progressLine").style.display = "none";
+  document.getElementById("submitBtn").style.display = "none";
+  document.getElementById("resultScreen").style.display = "block";
+  document.getElementById("scoreBig").textContent = ukupno + " / " + ukupnoMax;
+  document.getElementById("levelBreakdown").innerHTML =
+    "<div><span>Osnovni nivo</span><span>" + scores.osnovni + " / " + scores.osnovniMax + "</span></div>" +
+    "<div><span>Srednji nivo</span><span>" + scores.srednji + " / " + scores.srednjiMax + "</span></div>" +
+    "<div><span>Napredni nivo</span><span>" + scores.napredni + " / " + scores.napredniMax + "</span></div>" +
+    "<div><span>Ukupno</span><span>" + ukupno + " / " + ukupnoMax + "</span></div>";
+}
+
+if(!checkLock()){
+  updateProgress();
+}
+</script>
+</body>
+</html>
